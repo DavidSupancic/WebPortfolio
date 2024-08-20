@@ -3,276 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Supančić - Portfolio</title>
+    <title>Jane Doe - Data Scientist</title>
     <style>
+        /* Color palette */
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #ecf0f1;
-            --bg-color: #34495e;
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --text-color: #f1f1f1;
+            --bg-color: #333;
         }
+
+        /* General styles */
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
             background-color: var(--bg-color);
             color: var(--text-color);
         }
-        .parallax {
-            background-image: url('data_analytics.jpg');
-            height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+
+        /* Hero section */
+        .hero {
+            height: 80vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        .content {
-            background-color: rgba(44, 62, 80, 0.8);
-            padding: 20px;
-        }
-        header {
             text-align: center;
-            padding: 50px 0;
-            color: var(--text-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            padding: 20px;
+            background-image: url('https://source.unsplash.com/1600x900/?data-science');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        /* Navigation */
         nav {
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
             position: sticky;
             top: 0;
             z-index: 100;
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
         }
+
         nav li a {
             display: block;
             color: var(--text-color);
             text-align: center;
-            padding: 14px 16px;
+            padding: 1rem;
             text-decoration: none;
             transition: all 0.3s;
         }
+
         nav li a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        .section {
-            padding: 50px 20px;
-            margin: 20px 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-        }
-        .project {
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .skill-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .skill-name {
-            width: 150px;
-            font-weight: bold;
-        }
-        .skill-bar {
-            height: 20px;
-            background-color: var(--primary-color);
-            border-radius: 10px;
-            transition: width 1.5s ease-out;
-        }
-        .skill-yoe {
-            width: 50px;
-            text-align: right;
-            margin-left: 10px;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-in {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0;
-        }
-        h2 {
-            color: var(--primary-color);
+            background-color: var(--secondary-color);
         }
 
-        @media (max-width: 768px) {
-            .parallax {
-                background-attachment: scroll;
-            }
-            .skill-item {
-                flex-wrap: wrap;
-            }
-            .skill-name {
-                width: 100%;
-                margin-bottom: 5px;
-            }
-            .skill-bar {
-                flex-grow: 1;
-            }
-            .skill-yoe {
-                width: auto;
-                margin-left: 10px;
-            }
+        /* Section styles */
+        .section {
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
         }
     </style>
 </head>
 <body>
-    <div class="parallax">
-        <header>
-            <h1>David Supančić</h1>
-            <p>Data Scientist | Programmer</p>
-        </header>
+    <div class="hero">
+        <h1>Jane Doe</h1>
+        <p>Data Scientist</p>
     </div>
 
     <nav>
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="content">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>Data science student at University of Zagreb Faculty of Electrical
-                Engineering and Computing.</p>
-        </section>
-
-        <section id="skills" class="section">
-            <h2>Skills</h2>
-            <div id="skills-container">
-                <!-- Skills will be dynamically added here -->
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Customer segmentation</h3>
-                <p>Internship project - customer segmentation in telecommunications.</p>
-            </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of your second project.</p>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>Email: davidsupancic@gmail.com</p>
-            <p>LinkedIn: linkedin.com/in/david-supancic</p>
-            <p>GitHub: github.com/DavidSupancic</p>
-        </section>
+    <div class="section">
+        <h2>About</h2>
+        <p>I am a data scientist with expertise in machine learning, data analysis, and visualization.</p>
     </div>
 
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <div class="section">
+        <h2>Skills</h2>
+        <p>Python, SQL, Pandas, Matplotlib, Scikit-learn, TensorFlow</p>
+    </div>
 
-        // Animate sections on scroll
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, { threshold: 0.1 });
+    <div class="section">
+        <h2>Projects</h2>
+        <p>Check out my portfolio to see some of my recent projects.</p>
+    </div>
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // Skills data
-        const skills = [
-            { name: "SQL", yoe: 8 },
-            { name: "Python", yoe: 4 },
-            { name: "Machine Learning", yoe: 3 },
-            { name: "Data Analysis", yoe: 3 }
-        ];
-
-        // Function to create skill items
-        function createSkillItem(skill) {
-            return `
-                <div class="skill-item">
-                    <div class="skill-name">${skill.name}</div>
-                    <div class="skill-bar" style="width: 0px"></div>
-                    <div class="skill-yoe">${skill.yoe} YOE</div>
-                </div>
-            `;
-        }
-
-        // Function to render skills
-        function renderSkills() {
-            const skillsContainer = document.getElementById('skills-container');
-            skillsContainer.innerHTML = skills.map(createSkillItem).join('');
-        }
-
-        // Function to animate skill bars
-        function animateSkillBars() {
-            const maxWidth = 210; // Maximum width for the longest bar (7 YOE * 30px)
-            const skillBars = document.querySelectorAll('.skill-bar');
-            skillBars.forEach((bar, index) => {
-                const yoe = skills[index].yoe;
-                const width = (yoe / 7) * maxWidth; // Scale based on max YOE (7)
-                bar.style.width = `${width}px`;
-            });
-        }
-
-        // Render skills on page load
-        renderSkills();
-
-        // Trigger skill bar animation when skills section is in view
-        const skillsSection = document.getElementById('skills');
-        const skillsObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                animateSkillBars();
-                skillsObserver.unobserve(skillsSection);
-            }
-        }, { threshold: 0.5 });
-
-        skillsObserver.observe(skillsSection);
-    </script>
+    <div class="section">
+        <h2>Contact</h2>
+        <p>Email: janedoe@example.com</p>
+        <p>LinkedIn: linkedin.com/in/janedoe</p>
+    </div>
 </body>
 </html>
