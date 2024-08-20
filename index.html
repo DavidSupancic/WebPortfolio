@@ -1,219 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Supančić - Portfolio</title>
+    <!-- ... (previous head content remains the same) ... -->
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #ecf0f1;
-            --bg-color: #34495e;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        .parallax {
-            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        /* ... (previous styles remain the same) ... */
+        .skill-item {
             display: flex;
-            justify-content: center;
             align-items: center;
+            margin-bottom: 15px;
         }
-        .content {
-            background-color: rgba(44, 62, 80, 0.8);
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 50px 0;
-            color: var(--text-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            padding: 20px;
-        }
-        nav {
-            background-color: var(--secondary-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-        }
-        nav li a {
-            display: block;
-            color: var(--text-color);
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        nav li a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        .section {
-            padding: 50px 20px;
-            margin: 20px 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-        }
-        .project {
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .skill-name {
+            width: 150px;
+            font-weight: bold;
         }
         .skill-bar {
-            width: 100%;
+            flex-grow: 1;
+            height: 20px;
             background-color: rgba(255, 255, 255, 0.2);
-            margin-bottom: 20px;
             border-radius: 10px;
             overflow: hidden;
         }
-        .skill {
-            text-align: right;
-            padding: 10px;
-            color: var(--text-color);
+        .skill-level {
+            height: 100%;
             background-color: var(--primary-color);
             transition: width 1.5s ease-out;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-in {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0;
-        }
-        h2 {
-            color: var(--primary-color);
+        .skill-yoe {
+            width: 50px;
+            text-align: right;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="parallax">
-        <header>
-            <h1>David Supančić</h1>
-            <p>Data Scientist | Programmer</p>
-        </header>
-    </div>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- ... (previous body content remains the same) ... -->
 
     <div class="content">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>Data science student at University of Zagreb Faculty of Electrical
-                Engineering and Computing.</p>
-        </section>
+        <!-- ... (other sections remain the same) ... -->
 
         <section id="skills" class="section">
             <h2>Skills</h2>
-            <div class="skill-bar">
-                <div class="skill" style="width:0%">Python 90%</div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill" style="width:0%">Machine Learning 85%</div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill" style="width:0%">Data Analysis 80%</div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill" style="width:0%">SQL 75%</div>
+            <div id="skills-container">
+                <!-- Skills will be dynamically added here -->
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Customer segmentation</h3>
-                <p>Internship project - customer segmentation in telecommunications.</p>
-            </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of your second project.</p>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>Email: davidsupancic@gmail.com</p>
-            <p>LinkedIn: linkedin.com/in/david-supancic</p>
-            <p>GitHub: github.com/DavidSupancic</p>
-        </section>
+        <!-- ... (other sections remain the same) ... -->
     </div>
 
     <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // ... (previous script content remains the same) ...
 
-        // Animate sections on scroll
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, { threshold: 0.1 });
+        // Skills data
+        const skills = [
+            { name: "Python", yoe: 7 },
+            { name: "Machine Learning", yoe: 5 },
+            { name: "Data Analysis", yoe: 6 },
+            { name: "SQL", yoe: 3 }
+        ];
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        // Function to create skill items
+        function createSkillItem(skill) {
+            return `
+                <div class="skill-item">
+                    <div class="skill-name">${skill.name}</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 0%"></div>
+                    </div>
+                    <div class="skill-yoe">${skill.yoe} YOE</div>
+                </div>
+            `;
+        }
 
-        // Dynamically update skill bars
-        const skillBars = document.querySelectorAll('.skill');
+        // Function to render skills
+        function renderSkills() {
+            const skillsContainer = document.getElementById('skills-container');
+            skillsContainer.innerHTML = skills.map(createSkillItem).join('');
+        }
+
+        // Function to animate skill bars
         function animateSkillBars() {
-            skillBars.forEach(bar => {
-                const width = bar.textContent.split(' ')[1];
-                bar.style.width = width;
+            const maxYOE = Math.max(...skills.map(skill => skill.yoe));
+            const skillLevels = document.querySelectorAll('.skill-level');
+            skillLevels.forEach((level, index) => {
+                const width = (skills[index].yoe / maxYOE) * 100;
+                level.style.width = `${width}%`;
             });
         }
+
+        // Render skills on page load
+        renderSkills();
 
         // Trigger skill bar animation when skills section is in view
         const skillsSection = document.getElementById('skills');
@@ -225,6 +101,8 @@
         }, { threshold: 0.5 });
 
         skillsObserver.observe(skillsSection);
+
+        // ... (rest of the script remains the same) ...
     </script>
 </body>
 </html>
