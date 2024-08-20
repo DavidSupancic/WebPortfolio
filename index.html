@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jane Doe - Data Scientist</title>
+    <title>Alex Nguyen - Data Scientist</title>
     <style>
         /* Color palette */
         :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #2196F3;
-            --text-color: #f1f1f1;
-            --bg-color: #333;
+            --primary-color: #FF6B6B;
+            --secondary-color: #FFC107;
+            --text-color: #333;
+            --bg-color: #f1f1f1;
         }
 
         /* General styles */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
         }
@@ -30,10 +30,12 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: url('https://source.unsplash.com/1600x900/?data-science');
+            background-image: url('https://source.unsplash.com/1600x900/?data-visualization');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            color: var(--bg-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero h1 {
@@ -63,7 +65,7 @@
 
         nav li a {
             display: block;
-            color: var(--text-color);
+            color: var(--bg-color);
             text-align: center;
             padding: 1rem;
             text-decoration: none;
@@ -72,22 +74,29 @@
 
         nav li a:hover {
             background-color: var(--secondary-color);
+            color: var(--text-color);
         }
 
         /* Section styles */
         .section {
             padding: 3rem;
             text-align: center;
+            animation: fadeIn 1s ease-out;
         }
 
         .section h2 {
             color: var(--primary-color);
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
     <div class="hero">
-        <h1>Jane Doe</h1>
+        <h1>Alex Nguyen</h1>
         <p>Data Scientist</p>
     </div>
 
@@ -102,12 +111,12 @@
 
     <div class="section">
         <h2>About</h2>
-        <p>I am a data scientist with expertise in machine learning, data analysis, and visualization.</p>
+        <p>I am a data scientist with a passion for solving complex problems using data-driven insights.</p>
     </div>
 
     <div class="section">
         <h2>Skills</h2>
-        <p>Python, SQL, Pandas, Matplotlib, Scikit-learn, TensorFlow</p>
+        <p>Python, Pandas, Matplotlib, Scikit-learn, SQL, Tableau</p>
     </div>
 
     <div class="section">
@@ -117,8 +126,8 @@
 
     <div class="section">
         <h2>Contact</h2>
-        <p>Email: janedoe@example.com</p>
-        <p>LinkedIn: linkedin.com/in/janedoe</p>
+        <p>Email: alexnguyen@example.com</p>
+        <p>LinkedIn: linkedin.com/in/alexnguyen</p>
     </div>
 </body>
 </html>
