@@ -3,48 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Nguyen - Data Scientist</title>
+    <title>Emily Park - Data Scientist</title>
     <style>
         /* Color palette */
         :root {
-            --primary-color: #FF6B6B;
-            --secondary-color: #FFC107;
-            --text-color: #333;
-            --bg-color: #f1f1f1;
+            --primary-color: #9b59b6;
+            --secondary-color: #3498db;
+            --text-color: #f1f1f1;
+            --bg-color: #2c3e50;
         }
 
         /* General styles */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Lato', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            scroll-behavior: smooth;
         }
 
         /* Hero section */
         .hero {
-            height: 80vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: url('https://source.unsplash.com/1600x900/?data-visualization');
+            background-image: url('https://source.unsplash.com/1600x900/?data-science-technology');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: var(--bg-color);
+            color: var(--text-color);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 2rem;
+            animation: fadeInUp 1s ease-out 0.5s;
+            animation-fill-mode: both;
         }
 
         /* Navigation */
@@ -53,6 +57,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         nav ul {
@@ -65,7 +70,7 @@
 
         nav li a {
             display: block;
-            color: var(--bg-color);
+            color: var(--text-color);
             text-align: center;
             padding: 1rem;
             text-decoration: none;
@@ -74,60 +79,94 @@
 
         nav li a:hover {
             background-color: var(--secondary-color);
-            color: var(--text-color);
+            transform: translateY(-3px);
         }
 
         /* Section styles */
         .section {
-            padding: 3rem;
+            padding: 5rem 3rem;
             text-align: center;
-            animation: fadeIn 1s ease-out;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
         }
 
         .section h2 {
             color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="hero">
-        <h1>Alex Nguyen</h1>
+        <h1>Emily Park</h1>
         <p>Data Scientist</p>
     </div>
 
     <nav>
         <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="section">
+    <div class="section" id="about">
         <h2>About</h2>
-        <p>I am a data scientist with a passion for solving complex problems using data-driven insights.</p>
+        <p>I am a data scientist with a strong background in machine learning and data analysis. I am passionate about using data-driven insights to solve complex problems.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="skills">
         <h2>Skills</h2>
-        <p>Python, Pandas, Matplotlib, Scikit-learn, SQL, Tableau</p>
+        <p>Python, SQL, Pandas, Matplotlib, Scikit-learn, TensorFlow, Tableau</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="projects">
         <h2>Projects</h2>
         <p>Check out my portfolio to see some of my recent projects.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="contact">
         <h2>Contact</h2>
-        <p>Email: alexnguyen@example.com</p>
-        <p>LinkedIn: linkedin.com/in/alexnguyen</p>
+        <p>Email: emilypark@example.com</p>
+        <p>LinkedIn: linkedin.com/in/emilypark</p>
     </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate sections on scroll
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
