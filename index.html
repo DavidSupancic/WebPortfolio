@@ -97,14 +97,14 @@
             width: 150px;
             font-weight: bold;
         }
-        .skill-bar {
+        .skill-bar-container {
             flex-grow: 1;
             height: 20px;
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             overflow: hidden;
         }
-        .skill-level {
+        .skill-bar {
             height: 100%;
             background-color: var(--primary-color);
             transition: width 1.5s ease-out;
@@ -212,9 +212,9 @@
         // Skills data
         const skills = [
             { name: "Python", yoe: 7 },
-            { name: "SQL", yoe: 4 },
-            { name: "Machine Learning", yoe: 3 },
-            { name: "Data Analysis", yoe: 3 }
+            { name: "Machine Learning", yoe: 5 },
+            { name: "Data Analysis", yoe: 6 },
+            { name: "SQL", yoe: 3 }
         ];
 
         // Function to create skill items
@@ -222,8 +222,8 @@
             return `
                 <div class="skill-item">
                     <div class="skill-name">${skill.name}</div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 0%"></div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width: 0%"></div>
                     </div>
                     <div class="skill-yoe">${skill.yoe} YOE</div>
                 </div>
@@ -238,11 +238,10 @@
 
         // Function to animate skill bars
         function animateSkillBars() {
-            const maxYOE = Math.max(...skills.map(skill => skill.yoe));
-            const skillLevels = document.querySelectorAll('.skill-level');
-            skillLevels.forEach((level, index) => {
-                const width = (skills[index].yoe / maxYOE) * 100;
-                level.style.width = `${width}%`;
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach((bar, index) => {
+                const yoe = skills[index].yoe;
+                bar.style.width = `${yoe * 20}px`; // Each year is 20px wide
             });
         }
 
