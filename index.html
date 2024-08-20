@@ -57,6 +57,7 @@
             overflow: hidden;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
         nav li a {
             display: block;
@@ -92,15 +93,23 @@
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+            flex-wrap: wrap;
         }
         .skill-name {
             width: 150px;
             font-weight: bold;
+            margin-right: 10px;
+        }
+        .skill-bar-container {
+            flex-grow: 1;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
         }
         .skill-bar {
-            height: 20px;
+            height: 100%;
             background-color: var(--primary-color);
-            border-radius: 10px;
             transition: width 1.5s ease-out;
         }
         .skill-yoe {
@@ -124,6 +133,29 @@
         }
         h2 {
             color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+            .skill-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .skill-name {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            .skill-bar-container {
+                width: 100%;
+            }
+            .skill-yoe {
+                width: 100%;
+                text-align: left;
+                margin-left: 0;
+                margin-top: 5px;
+            }
         }
     </style>
 </head>
@@ -216,7 +248,9 @@
             return `
                 <div class="skill-item">
                     <div class="skill-name">${skill.name}</div>
-                    <div class="skill-bar" style="width: 0px"></div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width: 0%"></div>
+                    </div>
                     <div class="skill-yoe">${skill.yoe} YOE</div>
                 </div>
             `;
@@ -230,10 +264,12 @@
 
         // Function to animate skill bars
         function animateSkillBars() {
+            const maxYOE = Math.max(...skills.map(skill => skill.yoe));
             const skillBars = document.querySelectorAll('.skill-bar');
             skillBars.forEach((bar, index) => {
                 const yoe = skills[index].yoe;
-                bar.style.width = `${yoe * 30}px`; // Each year is 30px wide
+                const percentage = (yoe / maxYOE) * 100;
+                bar.style.width = `${percentage}%`;
             });
         }
 
