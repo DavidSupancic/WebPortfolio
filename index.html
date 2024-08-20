@@ -93,23 +93,15 @@
             display: flex;
             align-items: center;
             margin-bottom: 15px;
-            flex-wrap: wrap;
         }
         .skill-name {
             width: 150px;
             font-weight: bold;
-            margin-right: 10px;
-        }
-        .skill-bar-container {
-            flex-grow: 1;
-            height: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
         }
         .skill-bar {
-            height: 100%;
+            height: 20px;
             background-color: var(--primary-color);
+            border-radius: 10px;
             transition: width 1.5s ease-out;
         }
         .skill-yoe {
@@ -140,21 +132,18 @@
                 background-attachment: scroll;
             }
             .skill-item {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-wrap: wrap;
             }
             .skill-name {
                 width: 100%;
                 margin-bottom: 5px;
             }
-            .skill-bar-container {
-                width: 100%;
+            .skill-bar {
+                flex-grow: 1;
             }
             .skill-yoe {
-                width: 100%;
-                text-align: left;
-                margin-left: 0;
-                margin-top: 5px;
+                width: auto;
+                margin-left: 10px;
             }
         }
     </style>
@@ -248,9 +237,7 @@
             return `
                 <div class="skill-item">
                     <div class="skill-name">${skill.name}</div>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" style="width: 0%"></div>
-                    </div>
+                    <div class="skill-bar" style="width: 0px"></div>
                     <div class="skill-yoe">${skill.yoe} YOE</div>
                 </div>
             `;
@@ -264,12 +251,12 @@
 
         // Function to animate skill bars
         function animateSkillBars() {
-            const maxYOE = Math.max(...skills.map(skill => skill.yoe));
+            const maxWidth = 210; // Maximum width for the longest bar (7 YOE * 30px)
             const skillBars = document.querySelectorAll('.skill-bar');
             skillBars.forEach((bar, index) => {
                 const yoe = skills[index].yoe;
-                const percentage = (yoe / maxYOE) * 100;
-                bar.style.width = `${percentage}%`;
+                const width = (yoe / 7) * maxWidth; // Scale based on max YOE (7)
+                bar.style.width = `${width}px`;
             });
         }
 
